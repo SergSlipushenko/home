@@ -1,0 +1,7 @@
+[user]
+	email = sslypushenko@mirantis.com
+	name = sslypushenko
+[gitreview]
+	username = sslypushenko
+[core]
+	editor = vim
