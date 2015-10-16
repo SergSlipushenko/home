@@ -11,7 +11,7 @@ tox-env(){
 
 
 venv() {
-  source $1/bin/activate
+  source ${1:-.venv}/bin/activate
 }
 xrun() {
   sudo service lightdm ${1:-start}
@@ -23,3 +23,5 @@ alias gitr='git review'
 alias tox='deactivate; tox'
 alias logout-now='pkill -SIGTERM -f lxsession'
 alias gita='git status | fpp -c git add'
+alias sshs='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+alias ssh-copy-ids='ssh-copy-id -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
