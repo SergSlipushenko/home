@@ -9,10 +9,11 @@ tox-env(){
 }
 
 
-
 venv() {
-  source ${1:-.venv}/bin/activate
+  venv_dir=${WORK_VENV:-${1}}
+  source ${venv_dir:-.venv}/bin/activate
 }
+
 xrun() {
   sudo service lightdm ${1:-start}
 }
