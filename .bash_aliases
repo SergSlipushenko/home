@@ -8,6 +8,9 @@ tox-env(){
   source ${tox_path}".tox/"${1:-py27}/bin/activate
 }
 
+expoport(){
+  sshs -2NL ${3:-172.18.196.18}:${1:-8000}:${2:-10.20.0.2}:${1:-8000} root@${2:-10.20.0.2}&
+}
 
 venv() {
   venv_dir=${WORK_VENV:-${1}}
@@ -21,8 +24,10 @@ xrun() {
 alias gits='git status'
 alias gitca='git commit --amend'
 alias gitr='git review'
-alias tox='deactivate; tox'
+alias tox='rm $(git rev-parse --show-toplevel)/.testrepository/times.dbm;deactivate; tox'
 alias logout-now='pkill -SIGTERM -f lxsession'
 alias gita='git status | fpp -c git add'
 alias sshs='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias ssh-copy-ids='ssh-copy-id -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+alias scps='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+alias tmux='tmux a || tmux'
