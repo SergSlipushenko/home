@@ -1,7 +1,11 @@
 [user]
-	email = sslypushenko@mirantis.com
+	email = slipushenko@gmail.com
 	name = sslypushenko
 [gitreview]
 	username = sslypushenko
 [core]
 	editor = vim
+[receive]
+	denyCurrentBranch = refuse
+[push]
+	default = simple
