@@ -1,5 +1,5 @@
 #!/bin/bash
-tox-env(){
+tox-env() {
   tox_path=""
   while [ ! -d ${tox_path}".tox" ]; do
     tox_path='../'${tox_path}
@@ -32,3 +32,4 @@ alias ssh-copy-ids='ssh-copy-id -o StrictHostKeyChecking=no -o UserKnownHostsFil
 alias scps='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias tmux='tmux a || tmux'
 alias gitplease='git push --force-with-lease'
+alias gitrup='git remote update'
