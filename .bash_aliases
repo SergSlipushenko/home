@@ -14,13 +14,9 @@ expoport(){
 
 venv() {
   venv_folder=${PWD}/${1:-.venv} 
-  echo ${venv_folder}
   [ -d ${venv_folder} ] || venv_folder=${PWD}/venv
-  echo ${venv_folder}
   [ -d ${venv_folder} ] || venv_folder=~/venvs/$(basename $PWD)
-  echo ${venv_folder}
   [ -d ${venv_folder} ] || venv_folder=~/venvs/sandbox
-  echo ${venv_folder}
   source ${venv_folder}/bin/activate
 }
 
