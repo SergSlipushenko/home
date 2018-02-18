@@ -15,7 +15,9 @@ expoport(){
 }
 
 venv() {
-  venv_folder=${PWD}/${1:-.venv} 
+  venv_folder=${1:-.venv}
+  [ -d ${venv_folder} ] || venv_folder=~/venvs/${1}
+  [ -d ${venv_folder} ] || venv_folder=${PWD}/.venv
   [ -d ${venv_folder} ] || venv_folder=${PWD}/venv
   [ -d ${venv_folder} ] || venv_folder=~/venvs/$(basename $PWD)
   [ -d ${venv_folder} ] || venv_folder=~/venvs/sandbox
@@ -39,3 +41,7 @@ alias tmux='tmux a || tmux'
 alias gitplease='git push --force-with-lease'
 alias gitrup='git remote update'
 alias githr='git add . && git commit -m "TEMP" && git reset --hard'
+
+if [ -f ~/.env_secrets ]; then
+    . ~/.env_secrets
+fi
