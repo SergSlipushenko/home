@@ -5,9 +5,9 @@ tox-env() {
     tox_path='../'${tox_path}
     [ $(readlink -e $tox_path) = "/" ] && echo "No tox found" && return 1
   done
+  [ -d ${tox_path}".tox/"${1:-py35} ] && source ${tox_path}".tox/"${1:-py35}"/bin/activate" && return
   [ -d ${tox_path}".tox/py27" ] && source ${tox_path}".tox/py27/bin/activate" && return
   [ -d ${tox_path}".tox/py35" ] && source ${tox_path}".tox/py35/bin/activate" && return
-  [ -d ${tox_path}".tox/"${1} ] && source ${tox_path}".tox/"${1}"/bin/activate" && return
 }
 
 expoport(){
@@ -45,3 +45,4 @@ alias githr='git add . && git commit -m "TEMP" && git reset --hard'
 if [ -f ~/.env_secrets ]; then
     . ~/.env_secrets
 fi
+command -v kubectl >/dev/null 2>&1 && source <(kubectl completion bash)
