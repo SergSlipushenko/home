@@ -46,3 +46,5 @@ if [ -f ~/.env_secrets ]; then
     . ~/.env_secrets
 fi
 command -v kubectl >/dev/null 2>&1 && source <(kubectl completion bash)
+export PROMPT_COMMAND='history -a'
+export PATH=${HOME}/.local/bin:$PATH
